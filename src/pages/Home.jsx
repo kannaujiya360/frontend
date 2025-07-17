@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import JobList from '../components/JobList';
-import JobDetail from '../components/JobDetail';
-import SearchBar from '../components/SearchBar';
+import JobList from '../Components/JobList';
+import JobDetail from '../Components/JobDetail';
+import SearchBar from '../Components/SearchBar';
 import axios from 'axios';
+
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
