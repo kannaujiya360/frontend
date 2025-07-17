@@ -4,7 +4,6 @@ import JobDetail from '../Components/JobDetail';
 import SearchBar from '../Components/SearchBar';
 import axios from 'axios';
 
-
 const Home = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -12,10 +11,9 @@ const Home = () => {
 
   const fetchJobs = async () => {
     try {
+      const baseUrl = 'https://bcknd-3yu3.onrender.com/api/jobs';
       const res = await axios.get(
-        location
-          ? `http://localhost:3002/api/jobs/search?location=${location}`
-          : 'http://localhost:3002/api/jobs'
+        location ? `${baseUrl}/search?location=${location}` : baseUrl
       );
       setJobs(res.data);
       setSelectedJob(res.data[0]);
