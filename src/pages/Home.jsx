@@ -11,7 +11,7 @@ const Home = () => {
 
   const fetchJobs = async () => {
     try {
-      const baseUrl = 'https://bcknd-3yu3.onrender.com/api/jobs';
+      const baseUrl = `${import.meta.env.VITE_API_URL}/api/jobs`;
       const res = await axios.get(
         location ? `${baseUrl}/search?location=${location}` : baseUrl
       );
@@ -30,8 +30,12 @@ const Home = () => {
     <div className="min-h-screen bg-gradient-to-tr from-indigo-100 via-sky-100 to-purple-100 p-4 md:p-8 font-sans">
       <div className="max-w-7xl mx-auto">
         <div className="mb-6">
-          <h1 className="text-4xl font-extrabold text-gray-800 mb-2 text-center">🌟 Find Your Dream Job</h1>
-          <p className="text-center text-gray-600 mb-6">Search and explore curated job listings with ease.</p>
+          <h1 className="text-4xl font-extrabold text-gray-800 mb-2 text-center">
+            🌟 Find Your Dream Job
+          </h1>
+          <p className="text-center text-gray-600 mb-6">
+            Search and explore curated job listings with ease.
+          </p>
           <SearchBar onSearch={setLocation} />
         </div>
 
